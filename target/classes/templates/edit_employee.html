@@ -19,24 +19,24 @@
                 <td><input type="text" th:field="*{name}" /></td>
             </tr>
             <tr sec:authorize="hasAnyAuthority('USER')">
-                <td>Name:</td>
-                <td><input type="text" th:field="*{name}" readonly="readonly" /></td>
+
+                <td><input type="text" th:field="*{name}" hidden /></td>
             </tr>
             <tr sec:authorize="hasAnyAuthority('ADMIN')">
                 <td>Email:</td>
                 <td><input type="text" th:field="*{email}" /></td>
             </tr>
             <tr sec:authorize="hasAnyAuthority('USER')">
-                <td>Email:</td>
-                <td><input type="text" th:field="*{email}" readonly="readonly" /></td>
+
+                <td><input type="text" th:field="*{email}" hidden /></td>
             </tr>
             <tr sec:authorize="hasAnyAuthority('ADMIN')">
                 <td>Phone Number:</td>
                 <td><input type="text" th:field="*{phone}" /></td>
             </tr>
             <tr sec:authorize="hasAnyAuthority('USER')">
-                <td>Phone Number:</td>
-                <td><input type="text" th:field="*{phone}" readonly="readonly" /></td>
+
+                <td><input type="text" th:field="*{phone}" hidden /></td>
             </tr>
             <tr>
                 <td>Address:</td>

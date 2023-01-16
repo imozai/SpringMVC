@@ -3,12 +3,12 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee Manager</title>
+<title>Employee List</title>
 </head>
 <body>
 <div align="center">	
 	<div sec:authorize="isAuthenticated()">
-		Welcome <b><span sec:authentication="name">Username</span></b>
+		Hi <b><span sec:authentication="name">Username</span></b>
 		&nbsp;
 		<i><span sec:authentication="principal.authorities">Roles</span></i>
 	</div>
@@ -17,9 +17,13 @@
 		<input type="submit" value="Logout" />
 	</form>
 	
-	<h1>Employee Manager</h1>
+	<h1>Employee List</h1>
 	<div sec:authorize="hasAnyAuthority('ADMIN')">
 		<a href="new"><button>Add New Employee</button></a>
+	</div>
+	<br/>
+	<div>
+		<a href="uploadForm"><button>Upload File</button></a>
 	</div>
 	
 	<br/><br/>
@@ -49,7 +53,7 @@
 				<td sec:authorize="hasAnyAuthority('ADMIN','USER')">
 					<a th:href="@{'/edit/' + ${employee.id}}">Edit</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${employee.id}}">Delete</a>
+					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{${employee.id}}">Delete</a>
 				</td>
 			</tr>
 		</tbody>
